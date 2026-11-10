@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; --bg: #f5f7fb; --surface: #fff; --primary: #365eea; --text: #20283a; --muted: #707b8e; --border: #e2e8f2; --green: #15945a; --red: #d94f5c; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button, input, select { font: inherit; }
+.app-shell { max-width: 1160px; margin: auto; padding: 36px 22px 50px; }
+.topbar, .history-header { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+.topbar { margin-bottom: 24px; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.04em; }
+h2 { margin-bottom: 18px; font-size: 1.15rem; }
+.eyebrow { margin-bottom: 3px; color: var(--primary); font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.panel { padding: 24px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 8px 26px #263b6510; }
+.overview { margin-bottom: 22px; }
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.stat-card { display: grid; gap: 8px; padding: 17px; border-radius: 13px; background: #f4f6fb; }
+.stat-card span { color: var(--muted); font-size: .83rem; font-weight: 650; }
+.stat-card strong { font-size: clamp(1.25rem, 3vw, 1.8rem); }
+.income-card strong { color: var(--green); } .expense-card strong { color: var(--red); } .balance-card strong { color: var(--primary); }
+.budget-box { margin-top: 18px; padding: 16px; border: 1px solid var(--border); border-radius: 13px; background: #fbfcff; }
+.budget-row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px; color: var(--muted); }
+.budget-row strong { color: var(--text); }
+.budget-progress { height: 10px; overflow: hidden; border-radius: 20px; background: #e8edf6; }
+.budget-progress-bar { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #23a46a, #f3b53f); transition: width .2s ease; }
+.budget-message, .privacy-note { margin: 10px 0 0; color: var(--muted); font-size: .9rem; }
+.content-grid { display: grid; grid-template-columns: minmax(270px, .75fr) minmax(0, 1.5fr); gap: 22px; align-items: start; }
+#entryForm { display: grid; gap: 16px; }
+.field-group { display: grid; gap: 14px; } .field-group.inline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+label { display: grid; gap: 7px; color: var(--muted); font-size: .9rem; font-weight: 600; }
+input, select { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid var(--border); border-radius: 9px; background: #fff; color: var(--text); }
+input:focus, select:focus, button:focus-visible { outline: 3px solid #365eea40; outline-offset: 2px; }
+button { border: 0; border-radius: 9px; font-weight: 700; cursor: pointer; }
+.primary-btn { padding: 12px 16px; background: var(--primary); color: #fff; } .secondary-btn { padding: 10px 14px; background: #eaf0ff; color: var(--primary); }
+.filter-wrap { display: flex; grid-template-columns: auto auto; align-items: center; gap: 8px; }
+.filter-wrap select { width: auto; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 12px 9px; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+td { font-size: .91rem; }
+.type-badge { display: inline-block; padding: 4px 8px; border-radius: 99px; font-size: .72rem; font-weight: 750; text-transform: uppercase; }
+.type-badge.income { background: #e7f6ee; color: var(--green); } .type-badge.expense { background: #fff0f0; color: var(--red); }
+.amount.income { color: var(--green); } .amount.expense { color: var(--red); }
+.delete-btn { padding: 7px 9px; background: #fff0f0; color: var(--red); }
+.empty-state { padding: 26px 10px; color: var(--muted); text-align: center; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.privacy-note { text-align: center; }
+@media (max-width: 800px) { .content-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .app-shell { padding: 22px 14px 36px; } .panel { padding: 18px; } .summary-grid { gap: 8px; grid-template-columns: 1fr; } .field-group.inline { grid-template-columns: 1fr; } .topbar { align-items: flex-start; } table { min-width: 680px; } }
